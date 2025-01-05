@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+  set(CMAKE_CUDA_ARCHITECTURES 89)
+endif()
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(pmpp LANGUAGES CXX CUDA)
+
+add_executable(pmpp_test src/main.cu)
+set_property(TARGET pmpp_test PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+
+
